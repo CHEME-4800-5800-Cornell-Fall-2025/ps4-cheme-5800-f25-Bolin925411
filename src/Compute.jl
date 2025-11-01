@@ -76,7 +76,7 @@ function solve(model::MySimulatedAnnealingMinimumVariancePortfolioAllocationProb
        
             candidate_w = current_w + β * randn(length(w));
             
-            # candidate_w = max.(0.0, candidate_w); 
+            candidate_w = max.(0.0, candidate_w); 
             candidate_f = _objective_function(candidate_w, ḡ, Σ̂, R, μ, ρ);
 
             if candidate_f < current_f || rand() < exp((current_f - candidate_f) / T)
